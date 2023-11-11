@@ -2,17 +2,17 @@
 
 namespace grains {
 
-    double square(double casilla){
+    unsigned long long square(int casilla){
         return pow(base, casilla-1);
     }
 
-    double total(){
-
-        double total{0};
-
+    unsigned long long total(){
+        
+        unsigned long long total{};
+        
         for(int i{1}; i <= 64; ++i){
             total += square(i);
         } 
         return total;
     }
-}  // namespace grains
+}

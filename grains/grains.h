@@ -8,8 +8,9 @@
 namespace grains {
 
     constexpr int base{2};
-    double square(double casilla);
-    double total();
+
+    unsigned long long square(int casilla);
+    unsigned long long total();
 }  // namespace grains
 
 #endif // GRAINS_H
