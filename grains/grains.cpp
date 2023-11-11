@@ -3,7 +3,7 @@
 namespace grains {
 
     unsigned long long square(int casilla){
-        return pow(base, casilla-1);
+        return 1ULL << (casilla - 1);
     }
 
     unsigned long long total(){
