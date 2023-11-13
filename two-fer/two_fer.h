@@ -7,7 +7,7 @@
 
 namespace two_fer
 {
-    std::string two_fer(const std::string& name = "you");
+    std::string two_fer(const std::string& nombre = "you");
 } // namespace two_fer
 
 #endif //TWO_FER_H
