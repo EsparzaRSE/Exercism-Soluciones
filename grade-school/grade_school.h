@@ -14,8 +14,8 @@ namespace grade_school {
         
         public:
             void add(std::string nombre, int grado);
-            std::map<int, std::vector<std::string>> roster() const;
-            std::vector<std::string> grade(int grado) const;
+            const std::map<int, std::vector<std::string>> &roster() const;
+            const std::vector<std::string> grade(int grado) const;
 
         private:
             std::map<int, std::vector<std::string>> lista{};

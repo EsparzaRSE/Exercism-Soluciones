@@ -2,42 +2,17 @@
 
 namespace grade_school {
 
-    void grade_school::school::add(std::string nombre, int grado){
-        
-        auto buscar{lista.find(grado)};
-
-        if(buscar == lista.end()){ //si no encuentra, crea el vector y lo mete con esa clave            
-            std::vector<std::string> nuevo_vector{nombre};    
-            lista[grado] = nuevo_vector;
-        } else{
-            // Si el grado ya existe, agrega el nombre al vector
-            buscar->second.push_back(nombre);
-        }    
+    void school::add(std::string nombre, int grado){
+        lista[grado].push_back(nombre);
+        std::sort(lista[grado].begin(), lista[grado].end());   
     }
 
-    std::map<int, std::vector<std::string>> grade_school::school::roster() const{
-
-        //Copia porque al ser const la función no me deja modificar la lista directamente 
-        std::map<int, std::vector<std::string>> copia{lista};
-
-        for(auto& it : copia){
-            std::sort(it.second.begin(), it.second.end());
-        }
-        return copia;   
+    //para que funcione, lo importante es el const y la referencia
+    const std::map<int, std::vector<std::string>> &school::roster() const{
+        return lista;
     }
 
-    std::vector<std::string> grade_school::school::grade(int grado) const{
-        
-        auto buscar{lista.find(grado)};
-
-        if (buscar != lista.end()){
-                 
-            std::vector<std::string> copia = buscar->second;
-
-            //Si el grado está en la lista ordena y devuelve el vector.
-            std::sort(copia.begin(), copia.end());
-            return copia;
-        } 
-        else return std::vector<std::string>();  // sino devuelve un vector vacío       
+    const std::vector<std::string> school::grade(int grado) const{
+        return lista.find(grado)->second;    
     }
 }  // namespace grade_school
