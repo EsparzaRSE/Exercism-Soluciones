@@ -9,20 +9,14 @@ namespace nucleotide_count {
         for(auto& it : cadena){
             switch(it){
                 case 'A':
-                    ++conteo.find('A')->second;
-                    break;
+                    [[fallthrough]];
                 case 'C':
-                    ++conteo.find('C')->second;
-                    break; 
                 case 'G':
-                    ++conteo.find('G')->second;
-                    break;
                 case 'T':
-                    ++conteo.find('T')->second;
+                    ++conteo.find(it)->second;
                     break;
                 default:
                     throw std::invalid_argument("Cadena incorrecta");
-                    break;
             }
         }
         return conteo;
