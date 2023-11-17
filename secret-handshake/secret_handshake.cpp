@@ -4,14 +4,13 @@ namespace secret_handshake {
 
     std::vector<std::string> commands(int numero){
 
-        std::bitset<5> binario(numero);
-        std::vector<std::string> saludo{"wink", "double blink", "close your eyes", "jump"};
-        std::vector<std::string> resultado{};
+        std::vector<std::string> saludo{};
 
-        for (size_t i{0}; i < saludo.size(); ++i) {
-            if(binario[i]) resultado.push_back(saludo.at(i));
-        }
-        if(binario[4]) std::reverse(resultado.begin(), resultado.end());
-        return resultado;
+        if(numero & 0b00001) saludo.push_back("wink");
+        if(numero & 0b00010) saludo.push_back("double blink");
+        if(numero & 0b00100) saludo.push_back("close your eyes");
+        if(numero & 0b01000) saludo.push_back("jump");
+        if(numero & 0b10000) std::reverse(saludo.begin(), saludo.end());
+        return saludo;
     }
 }  // namespace secret_handshake

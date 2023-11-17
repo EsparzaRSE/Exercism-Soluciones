@@ -5,7 +5,6 @@
 
 #include <vector>
 #include <string>
-#include <bitset>
 #include <algorithm>
 
 namespace secret_handshake {
