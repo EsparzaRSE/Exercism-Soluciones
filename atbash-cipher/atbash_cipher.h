@@ -5,7 +5,6 @@
 
 #include <string>
 #include <string_view>
-#include <unordered_map>
 
 namespace atbash_cipher {
     std::string encode(std::string_view code);

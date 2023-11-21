@@ -23,18 +23,12 @@ namespace atbash_cipher {
 
     std::string decode(std::string_view code){
         
-        std::string cipher{"zyxwvutsrqponmlkjihgfedcba"};
-        std::unordered_map<char, char> transposicion{};
-
-        for(size_t i{0}; i < cipher.length(); ++i){
-            transposicion['a' + i] = cipher[i];
-        } 
         std::string codificado{};
 
         for (char letra : code) {
             if(std::isalpha(letra)) letra = std::tolower(letra);
             if (letra >= 'a' && letra <= 'z') {
-                codificado += transposicion[letra];
+                codificado += 192 + 27 - letra;
             }
             if (std::isdigit(letra)) {
                 codificado += letra;
