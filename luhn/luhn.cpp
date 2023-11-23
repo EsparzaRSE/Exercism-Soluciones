@@ -9,7 +9,7 @@ namespace luhn {
 
         for(int i{static_cast<int>(numero.size()) - 1}; i >= 0; --i){
             if(std::isdigit(numero[i])) {
-                int digito = numero[i] - '0';
+                int digito{numero[i] - '0'};
                 if(posicion % 2 != 0){
                     digito *= 2;
                     if(digito > 9) digito -= 9;
