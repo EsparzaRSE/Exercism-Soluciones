@@ -8,7 +8,7 @@
 #include <cmath>
 
 namespace hexadecimal {
-    int convert(std::string_view to_decimal);
+    int convert(std::string_view str_hexa);
 }  // namespace hexadecimal
 
 #endif // HEXADECIMAL_H
