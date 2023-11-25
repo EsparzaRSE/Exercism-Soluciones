@@ -1,10 +1,8 @@
 #include "isogram.h"
 
 namespace isogram {
-    
-    bool is_isogram(std::string_view frase){
 
-        if(frase.empty()) return true;
+    bool is_isogram(std::string_view frase){
 
         std::array<char, 26> iso{};
 
